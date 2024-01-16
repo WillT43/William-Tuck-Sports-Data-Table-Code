@@ -1,3 +1,6 @@
+#William Tuck Sports Reference Engineering Internship Application Solution.
+
+#JSON data
 data = {
 
 'BRO': {
@@ -144,21 +147,31 @@ data = {
 
 }
 }
+#Holds a list of all of the teams in the data. 
 teams = []
+#Adds the teams to the list.
 for i in data:
   teams.append(i)
+#Creates a header for the table. 
 def header():
   print("Tm\t\t",end="")
+  #Loop through each team in the teams list.
   for i in teams:
     print(i,"\t",end="")
   print("\n")
 header()
+#Assign i to each index in the teams list as said list is iterated through. 
 for i in range(len(teams)):
+  #Creates labels on the left side of the table.
   print(teams[i],"\t",end="")
+  #Assign j to the index of the teams list for each team that plays the team at index i.
   for j in range(len(teams)):
+    #If the team index is the same (the team is playing itself) then print a dash.
     if j==i:
       print("-\t\t",end="")
     else: 
+      #Print the number of wins according to the data at team index i vs team index j.
       print(data[teams[i]][teams[j]]["W"],"\t\t",end="")
   print("\n")
+#Uses the header function to create a footer of the same labels. 
 header()
